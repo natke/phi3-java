@@ -4,6 +4,9 @@ Clone this repo
 
 Change directories into the repo folder
 
-Edit the `settings.gradle` file to add the paths to your onnxruntime-genai build.
+Edit the `app/build.gradle` file to add the paths on your local machine
+* the path to your model
+* the path to the jar
+* the path to the onnxruntime-genai-jni lib
 
 On the command line, run `gradlew run`.
