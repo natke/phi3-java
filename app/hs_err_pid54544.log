@@ -1,0 +1,276 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb150b122e, pid=54544, tid=0x000000000000b454
+#
+# JRE version: OpenJDK Runtime Environment (8.0_412-b08) (build 1.8.0_412-b08)
+# Java VM: OpenJDK 64-Bit Server VM (25.412-b08 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# C  [vcruntime140.dll+0x122e]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001d1cb7ca800):  JavaThread "main" [_thread_in_native, id=46164, stack(0x00000050a3000000,0x00000050a3100000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0xfffffffffffe0b00
+
+Registers:
+RAX=0x000001d1f205fe40, RBX=0x000000000001f500, RCX=0x000000000001f500, RDX=0xfffffe2e0df80cc0
+RSP=0x00000050a30fee78, RBP=0x000000000001f500, RSI=0xfffffffffffe0b00, RDI=0x000001d1f205fe40
+R8 =0x000000000001f500, R9 =0x0000000000000004, R10=0xfffffffffffe0b00, R11=0x000001d1f205fe40
+R12=0x0000000000000000, R13=0x000001d1f39739b8, R14=0x0000000000000000, R15=0x0000000000000000
+RIP=0x00007ffb150b122e, EFLAGS=0x0000000000010203
+
+Top of Stack: (sp=0x00000050a30fee78)
+0x00000050a30fee78:   0000000000000000 000001d1f205fe40
+0x00000050a30fee88:   00007ffa362f64a1 000001d1f39739b8
+0x00000050a30fee98:   0000000000000000 0000000000000000
+0x00000050a30feea8:   0000000000007d40 ffffffffffffffff
+0x00000050a30feeb8:   00007ffa362f692c 0000000000000000
+0x00000050a30feec8:   000001d1f205fe40 0000000000000041
+0x00000050a30feed8:   000001d1f39738d0 00000050a30fefa0
+0x00000050a30feee8:   000001d1f20fd190 0000000000000001
+0x00000050a30feef8:   0000000000000004 000001d24294fdb0
+0x00000050a30fef08:   000001d1f379be70 fffffffffffe0b00
+0x00000050a30fef18:   000000000001f500 000000006e62c798
+0x00000050a30fef28:   0000005000000000 0000000000000000
+0x00000050a30fef38:   0000000000000000 000001d1f205fe40
+0x00000050a30fef48:   000000000001f500 0000fa0e343a4876
+0x00000050a30fef58:   000001d1cb7ca800 000001d1f39738d0
+0x00000050a30fef68:   000001d1ef3db5f8 0000000000000000 
+
+Instructions: (pc=0x00007ffb150b122e)
+0x00007ffb150b120e:   cc cc cc cc cc cc cc cc 66 66 0f 1f 84 00 00 00
+0x00007ffb150b121e:   00 00 57 56 49 8b c3 48 8b f9 49 8b c8 49 8b f2
+0x00007ffb150b122e:   f3 a4 5e 5f c3 cc cc cc cc cc cc 0f 1f 80 00 00
+0x00007ffb150b123e:   00 00 4c 8b d9 4c 8b d2 49 83 f8 10 76 64 49 83 
+
+
+Register to memory mapping:
+
+RAX=0x000001d1f205fe40 is an unknown value
+RBX=0x000000000001f500 is an unknown value
+RCX=0x000000000001f500 is an unknown value
+RDX=0xfffffe2e0df80cc0 is an unknown value
+RSP=0x00000050a30fee78 is pointing into the stack for thread: 0x000001d1cb7ca800
+RBP=0x000000000001f500 is an unknown value
+RSI=0xfffffffffffe0b00 is an unknown value
+RDI=0x000001d1f205fe40 is an unknown value
+R8 =0x000000000001f500 is an unknown value
+R9 =0x0000000000000004 is an unknown value
+R10=0xfffffffffffe0b00 is an unknown value
+R11=0x000001d1f205fe40 is an unknown value
+R12=0x0000000000000000 is an unknown value
+R13=0x000001d1f39739b8 is an unknown value
+R14=0x0000000000000000 is an unknown value
+R15=0x0000000000000000 is an unknown value
+
+
+Stack: [0x00000050a3000000,0x00000050a3100000],  sp=0x00000050a30fee78,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [vcruntime140.dll+0x122e]
+C  [onnxruntime-genai.dll+0x364a1]  std::_Copy_memmove<unsigned char const *,unsigned char *>+0x21
+C  [onnxruntime-genai.dll+0x3692c]  Generators::Logits::Get+0x1ec
+C  [onnxruntime-genai.dll+0x2ea56]  Generators::DecoderOnly_State::Run+0x66
+C  [onnxruntime-genai.dll+0x1f8c6]  Generators::Generator::ComputeLogits+0x76
+C  [onnxruntime-genai.dll+0x55ed9]  OgaGenerator_ComputeLogits+0x9
+C  [onnxruntime-genai-jni.dll+0x1471]  Java_ai_onnxruntime_genai_Generator_computeLogitsNative+0x11
+C  0x000001d1cd259c8e
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  ai.onnxruntime.genai.Generator.computeLogitsNative(J)V+0
+j  ai.onnxruntime.genai.Generator.computeLogits()V+24
+j  org.example.App.runLoop()V+73
+j  org.example.App.main([Ljava/lang/String;)V+13
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000001d1eface000 JavaThread "Service Thread" daemon [_thread_blocked, id=54628, stack(0x00000050a4400000,0x00000050a4500000)]
+  0x000001d1efa9b800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=34904, stack(0x00000050a4300000,0x00000050a4400000)]
+  0x000001d1efa9a800 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=30344, stack(0x00000050a4200000,0x00000050a4300000)]
+  0x000001d1efa97800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=55912, stack(0x00000050a4100000,0x00000050a4200000)]
+  0x000001d1efa9d800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=50676, stack(0x00000050a4000000,0x00000050a4100000)]
+  0x000001d1efa93800 JavaThread "Attach Listener" daemon [_thread_blocked, id=49328, stack(0x00000050a3f00000,0x00000050a4000000)]
+  0x000001d1efa91800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=37340, stack(0x00000050a3e00000,0x00000050a3f00000)]
+  0x000001d1efa68800 JavaThread "Finalizer" daemon [_thread_blocked, id=6516, stack(0x00000050a3d00000,0x00000050a3e00000)]
+  0x000001d1efa60800 JavaThread "Reference Handler" daemon [_thread_blocked, id=39996, stack(0x00000050a3c00000,0x00000050a3d00000)]
+=>0x000001d1cb7ca800 JavaThread "main" [_thread_in_native, id=46164, stack(0x00000050a3000000,0x00000050a3100000)]
+
+Other Threads:
+  0x000001d1efa38800 VMThread [stack: 0x00000050a3b00000,0x00000050a3c00000] [id=47696]
+  0x000001d1f1f24000 WatcherThread [stack: 0x00000050a4500000,0x00000050a4600000] [id=45672]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000005c2a00000, size: 8150 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 152576K, used 7867K [0x0000000716380000, 0x0000000720d80000, 0x00000007c0000000)
+  eden space 131072K, 6% used [0x0000000716380000,0x0000000716b2eda0,0x000000071e380000)
+  from space 21504K, 0% used [0x000000071f880000,0x000000071f880000,0x0000000720d80000)
+  to   space 21504K, 0% used [0x000000071e380000,0x000000071e380000,0x000000071f880000)
+ ParOldGen       total 348160K, used 0K [0x00000005c2a00000, 0x00000005d7e00000, 0x0000000716380000)
+  object space 348160K, 0% used [0x00000005c2a00000,0x00000005c2a00000,0x00000005d7e00000)
+ Metaspace       used 4755K, capacity 4878K, committed 4992K, reserved 1056768K
+  class space    used 526K, capacity 558K, committed 640K, reserved 1048576K
+
+Card table byte_map: [0x000001d1dc600000,0x000001d1dd5f0000] byte_map_base: 0x000001d1d97eb000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006e860830
+ Begin Bits: [0x000001d1de090000, 0x000001d1e5fe8000)
+ End Bits:   [0x000001d1e5fe8000, 0x000001d1edf40000)
+
+Polling page: 0x000001d1cb9d0000
+
+CodeCache: size=245760Kb used=1479Kb max_used=1479Kb free=244280Kb
+ bounds [0x000001d1cd240000, 0x000001d1cd4b0000, 0x000001d1dc240000]
+ total_blobs=481 nmethods=190 adapters=204
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 18.506 Thread 0x000001d1efa9b800  184       3       sun.util.locale.LocaleUtils::isUpper (18 bytes)
+Event: 18.506 Thread 0x000001d1efa9b800 nmethod 184 0x000001d1cd3b0410 code [0x000001d1cd3b0560, 0x000001d1cd3b0738]
+Event: 18.509 Thread 0x000001d1efa9b800  185       3       java.util.HashSet::add (20 bytes)
+Event: 18.510 Thread 0x000001d1efa9b800 nmethod 185 0x000001d1cd3b07d0 code [0x000001d1cd3b0960, 0x000001d1cd3b0e80]
+Event: 18.511 Thread 0x000001d1efa9b800  186       3       java.util.concurrent.ConcurrentHashMap::spread (10 bytes)
+Event: 18.511 Thread 0x000001d1efa9b800 nmethod 186 0x000001d1cd3b1890 code [0x000001d1cd3b19e0, 0x000001d1cd3b1b38]
+Event: 18.511 Thread 0x000001d1efa9b800  188       3       java.util.concurrent.ConcurrentHashMap::setTabAt (19 bytes)
+Event: 18.511 Thread 0x000001d1efa9b800 nmethod 188 0x000001d1cd3b1bd0 code [0x000001d1cd3b1d20, 0x000001d1cd3b1e98]
+Event: 32.506 Thread 0x000001d1efa9b800  190       3       java.lang.String::indexOf (25 bytes)
+Event: 32.513 Thread 0x000001d1efa9b800 nmethod 190 0x000001d1cd3b1f10 code [0x000001d1cd3b2080, 0x000001d1cd3b2250]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (8 events):
+Event: 0.025 Thread 0x000001d1cb7ca800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x0000000716387cd8) thrown at [C:\workspace\openjdk-build\workspace\build\src\hotspot\src\share\vm\p
+Event: 0.025 Thread 0x000001d1cb7ca800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x0000000716387fc0) thrown at [C:\workspace\openjdk-build\workspace\build\src\hotspot\src\share\vm\prims\jni.cpp, line
+Event: 0.089 Thread 0x000001d1cb7ca800 Exception <a 'java/security/PrivilegedActionException'> (0x00000007163f28a8) thrown at [C:\workspace\openjdk-build\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1514]
+Event: 0.089 Thread 0x000001d1cb7ca800 Exception <a 'java/security/PrivilegedActionException'> (0x00000007163f2ab8) thrown at [C:\workspace\openjdk-build\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1514]
+Event: 0.412 Thread 0x000001d1cb7ca800 Exception <a 'java/security/PrivilegedActionException'> (0x00000007165759c0) thrown at [C:\workspace\openjdk-build\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1514]
+Event: 0.412 Thread 0x000001d1cb7ca800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000716575bd0) thrown at [C:\workspace\openjdk-build\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1514]
+Event: 0.412 Thread 0x000001d1cb7ca800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000716579a50) thrown at [C:\workspace\openjdk-build\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1514]
+Event: 0.412 Thread 0x000001d1cb7ca800 Exception <a 'java/security/PrivilegedActionException'> (0x0000000716579c60) thrown at [C:\workspace\openjdk-build\workspace\build\src\hotspot\src\share\vm\prims\jvm.cpp, line 1514]
+
+Events (10 events):
+Event: 18.510 loading class sun/text/resources/en/FormatData_en_US
+Event: 18.510 loading class sun/text/resources/en/FormatData_en_US done
+Event: 18.510 loading class sun/util/resources/ParallelListResourceBundle$KeySet
+Event: 18.510 loading class sun/util/resources/ParallelListResourceBundle$KeySet done
+Event: 18.512 loading class java/util/Formattable
+Event: 18.512 loading class java/util/Formattable done
+Event: 32.497 loading class ai/onnxruntime/genai/TokenizerStream
+Event: 32.497 loading class ai/onnxruntime/genai/TokenizerStream done
+Event: 32.512 loading class ai/onnxruntime/genai/Generator
+Event: 32.512 loading class ai/onnxruntime/genai/Generator done
+
+
+Dynamic libraries:
+0x00007ff6d8150000 - 0x00007ff6d81a1000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\bin\java.exe
+0x00007ffb45ed0000 - 0x00007ffb460e7000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffb45010000 - 0x00007ffb450d4000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffb43440000 - 0x00007ffb437ec000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffb45510000 - 0x00007ffb455c2000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffb45140000 - 0x00007ffb451e7000 	C:\Windows\System32\msvcrt.dll
+0x00007ffb453f0000 - 0x00007ffb4549a000 	C:\Windows\System32\sechost.dll
+0x00007ffb432c0000 - 0x00007ffb432e8000 	C:\Windows\System32\bcrypt.dll
+0x00007ffb44000000 - 0x00007ffb44115000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffb44cb0000 - 0x00007ffb44e5e000 	C:\Windows\System32\USER32.dll
+0x00007ffb43390000 - 0x00007ffb433b6000 	C:\Windows\System32\win32u.dll
+0x00007ffb450e0000 - 0x00007ffb45109000 	C:\Windows\System32\GDI32.dll
+0x00007ffb437f0000 - 0x00007ffb43909000 	C:\Windows\System32\gdi32full.dll
+0x00007ffb432f0000 - 0x00007ffb4338a000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffb43980000 - 0x00007ffb43a91000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffb2d330000 - 0x00007ffb2d5c3000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955\COMCTL32.dll
+0x00007ffb44c70000 - 0x00007ffb44ca1000 	C:\Windows\System32\IMM32.DLL
+0x00007ffb150b0000 - 0x00007ffb150c5000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\jre\bin\vcruntime140.dll
+0x00007ffaf72d0000 - 0x00007ffaf736b000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\jre\bin\msvcp140.dll
+0x000000006e080000 - 0x000000006e8d9000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\jre\bin\server\jvm.dll
+0x00007ffb45500000 - 0x00007ffb45508000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffb29d70000 - 0x00007ffb29d7a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffb357f0000 - 0x00007ffb35824000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffb04c30000 - 0x00007ffb04c39000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffb45620000 - 0x00007ffb45691000 	C:\Windows\System32\WS2_32.dll
+0x00007ffb421f0000 - 0x00007ffb42208000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffb29ed0000 - 0x00007ffb29ee0000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\jre\bin\verify.dll
+0x00007ffb15080000 - 0x00007ffb150ab000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\jre\bin\java.dll
+0x00007ffb14600000 - 0x00007ffb14618000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\jre\bin\zip.dll
+0x00007ffb44130000 - 0x00007ffb4498c000 	C:\Windows\System32\SHELL32.dll
+0x00007ffb40e30000 - 0x00007ffb41727000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ffb43c10000 - 0x00007ffb43f98000 	C:\Windows\System32\combase.dll
+0x00007ffb40cf0000 - 0x00007ffb40e2f000 	C:\Windows\SYSTEM32\wintypes.dll
+0x00007ffb44b70000 - 0x00007ffb44c64000 	C:\Windows\System32\SHCORE.dll
+0x00007ffb454a0000 - 0x00007ffb454fe000 	C:\Windows\System32\shlwapi.dll
+0x00007ffb43130000 - 0x00007ffb43151000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ffb42a30000 - 0x00007ffb42a4b000 	C:\Windows\SYSTEM32\CRYPTSP.dll
+0x00007ffb42100000 - 0x00007ffb42135000 	C:\Windows\system32\rsaenh.dll
+0x00007ffb42830000 - 0x00007ffb42858000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ffb433c0000 - 0x00007ffb4343b000 	C:\Windows\System32\bcryptprimitives.dll
+0x00007ffb42a10000 - 0x00007ffb42a1c000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffb10cc0000 - 0x00007ffb10cdc000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\jre\bin\net.dll
+0x00007ffb42790000 - 0x00007ffb427f9000 	C:\Windows\system32\mswsock.dll
+0x00007ffb41980000 - 0x00007ffb419ad000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffb45110000 - 0x00007ffb45119000 	C:\Windows\System32\NSI.dll
+0x00007ffb3f0a0000 - 0x00007ffb3f0b9000 	C:\Windows\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffb3f080000 - 0x00007ffb3f09f000 	C:\Windows\SYSTEM32\dhcpcsvc.DLL
+0x00007ffb419b0000 - 0x00007ffb41aa8000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ffb0fe40000 - 0x00007ffb0fe53000 	C:\Users\nakersha\.gradle\jdks\temurin-8-amd64-windows\jdk8u412-b08\jre\bin\nio.dll
+0x00007ffa1f6c0000 - 0x00007ffa20114000 	C:\Users\nakersha\Develop\code\microsoft\onnxruntime-genai\build\Windows\RelWithDebInfo\RelWithDebInfo\onnxruntime.dll
+0x00007ffb2a250000 - 0x00007ffb2a25c000 	C:\Windows\SYSTEM32\VCRUNTIME140_1.dll
+0x00007ffb29c50000 - 0x00007ffb29c59000 	C:\Windows\SYSTEM32\MSVCP140_1.dll
+0x00007ffa362c0000 - 0x00007ffa36627000 	C:\Users\nakersha\Develop\code\microsoft\onnxruntime-genai\build\Windows\RelWithDebInfo\RelWithDebInfo\onnxruntime-genai.dll
+0x00007ffb03990000 - 0x00007ffb039dd000 	C:\Windows\SYSTEM32\CONCRT140.dll
+0x00007ffb0f9c0000 - 0x00007ffb0f9d1000 	C:\Users\nakersha\Develop\code\microsoft\onnxruntime-genai\src\java\build\resources\test\onnxruntime-genai-jni.dll
+0x00007ffb35500000 - 0x00007ffb35732000 	C:\Windows\SYSTEM32\dbghelp.dll
+0x00007ffb45310000 - 0x00007ffb453e7000 	C:\Windows\System32\OLEAUT32.dll
+
+VM Arguments:
+jvm_args: -Djava.library.path=C:\Users\nakersha\Develop\code\microsoft\onnxruntime-genai\build\Windows\RelWithDebInfo\RelWithDebInfo;C:\Users\nakersha\Develop\code\microsoft\onnxruntime-genai\src\java\build\resources\test; -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: org.example.App
+java_class_path (initial): C:\Users\nakersha\Develop\samples\Java\app\build\classes\java\main;C:\Users\nakersha\Develop\samples\Java\app\build\resources\main;C:\Users\nakersha\Develop\code\microsoft\onnxruntime-genai\src\java\build\libs\onnxruntime-genai-0.4.0-dev.jar;C:\Users\nakersha\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\33.0.0-jre\161ba27964a62f241533807a46b8711b13c1d94b\guava-33.0.0-jre.jar;C:\Users\nakersha\.gradle\caches\modules-2\files-2.1\com.google.guava\failureaccess\1.0.2\c4a06a64e650562f30b7bf9aaec1bfed43aca12b\failureaccess-1.0.2.jar;C:\Users\nakersha\.gradle\caches\modules-2\files-2.1\com.google.guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\b421526c5f297295adef1c886e5246c39d4ac629\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\nakersha\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.2\25ea2e8b0c338a877313bd4672d3fe056ea78f0d\jsr305-3.0.2.jar;C:\Users\nakersha\.gradle\caches\modules-2\files-2.1\org.checkerframework\checker-qual\3.41.0\8be6df7f1e9bccb19f8f351b3651f0bac2f5e0c\checker-qual-3.41.0.jar;C:\Users\nakersha\.gradle\caches\modules-2\files-2.1\com.google.errorprone\error_prone_annotations\2.23.0\43a27853b6c7d54893e0b1997c2c778c347179eb\error_prone_annotations-2.23.0.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-11
+CLASSPATH=C:\Users\nakersha\Develop\samples\Java\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Users\nakersha\AppData\Local\miniconda3;C:\Users\nakersha\AppData\Local\miniconda3\Library\mingw-w64\bin;C:\Users\nakersha\AppData\Local\miniconda3\Library\usr\bin;C:\Users\nakersha\AppData\Local\miniconda3\Library\bin;C:\Users\nakersha\AppData\Local\miniconda3\Scripts;C:\Users\nakersha\AppData\Local\miniconda3\bin;C:\Users\nakersha\AppData\Local\miniconda3\condabin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit;C:\Program Files\CMake\bin;C;C;C:\Program Files\Git\cmd;C:\Users\nakersha\AppData\Local\miniconda3;C:\Users\nakersha\AppData\Local\miniconda3\Library\mingw-w64\bin;C:\Users\nakersha\AppData\Local\miniconda3\Library\usr\bin;C:\Users\nakersha\AppData\Local\miniconda3\Library\bin;C:\Users\nakersha\AppData\Local\miniconda3\Scripts;C:\Users\nakersha\AppData\Local\Microsoft\WindowsApps;C:\Users\nakersha\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\nakersha\.dotnet\tools;C:\Programs\gradle-8.8\bin
+USERNAME=nakersha
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 154 Stepping 4, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 11 , 64 bit Build 22621 (10.0.22621.3672)
+
+CPU:total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 154 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 33374600k(1730636k free), swap 87972384k(10089552k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.412-b08) for windows-amd64 JRE (1.8.0_412-b08), built on Apr 17 2024 02:10:30 by "jenkins" with MS VC++ 15.9 (VS2017)
+
+time: Tue Jul  2 22:09:04 2024
+timezone: Pacific Daylight Time
+elapsed time: 32.752195 seconds (0d 0h 0m 32s)
+
