@@ -23,7 +23,7 @@ dependencies {
     implementation libs.guava
 
     // The ONNX Runtime generate API
-    implementation files('C:\\Users\\nakersha\\Develop\\code\\microsoft\\onnxruntime-genai\\src\\java\\build\\libs\\onnxruntime-genai-0.4.0-dev.jar')
+    implementation files('C:\\Users\\nakersha\\Develop\\code\\microsoft\\onnxruntime-genai\\build\\Windows\\RelWithDebInfo\\src\\java\\build\\libs\\onnxruntime-genai-0.4.0-dev.jar')
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -39,6 +39,7 @@ application {
     
 }
 
+// For onnxruntime-genai-jni.dll and onnxruntime.dll
 run {
-    systemProperty "java.library.path", "C:\\Users\\nakersha\\Develop\\code\\microsoft\\onnxruntime-genai\\build\\Windows\\RelWithDebInfo\\RelWithDebInfo;C:\\Users\\nakersha\\Develop\\code\\microsoft\\onnxruntime-genai\\src\\java\\build\\resources\\test;"
+    systemProperty "java.library.path", "C:\\Users\\nakersha\\Develop\\code\\microsoft\\onnxruntime-genai\\build\\Windows\\Release\\Release;C:\\Users\\nakersha\\Develop\\code\\microsoft\\onnxruntime-genai\\build\\Windows\\Release\\src\\java\\Release;"
 }

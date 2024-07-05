@@ -18,7 +18,6 @@ public class App {
             logger.info("Result: " + result);
         } catch (GenAIException e) {
             e.printStackTrace();    
-
         }
     }
 
@@ -35,20 +34,24 @@ public class App {
            GeneratorParams params = model.createGeneratorParams();
            params.setSearchOption("max_length", 200);
 
-           Generator generator = new Generator(model, params);
-
            Sequences input_ids = tokenizer.encode("<|user|>\\nHello!<|end|>\\n<|assistant|>");
            params.setInput(input_ids);
+
+           Generator generator = new Generator(model, params);
+
+           logger.info("Running loop: ");
+
            while (!generator.isDone()) {
                generator.computeLogits();
                generator.generateNextToken();
 
                int token = generator.getLastTokenInSequence(0);
 
-               String string = stream.decode(token);
+               System.out.print(stream.decode(token));
 
-               System.out.println(string);
-           }
+            }
+
+           generator.close();
         
         } catch (GenAIException e) {
             e.printStackTrace();
